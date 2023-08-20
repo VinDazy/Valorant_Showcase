@@ -1,6 +1,5 @@
 import streamlit as st 
-import requests
-from streamlit_option_menu import option_menu
+import requests 
 st.set_page_config(page_title="Valorant Agents ",layout="wide", page_icon="icons/val_icon2.png")
 st.image("icons/upp.png")
 st.title("Valorant Agents")
