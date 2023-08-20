@@ -54,7 +54,7 @@ if search:
                     ability_images.append(ability['displayIcon'])
                 with pic:
                     pic.subheader(f"{Agent_name} Portrait")
-                    pic.image(image,caption=f"{Agent_name}")
+                    pic.image(image,caption=f"{Agent_name}",use_column_width=True)
 
                 with description:
                     description.subheader(f"{Agent_name} Description")
