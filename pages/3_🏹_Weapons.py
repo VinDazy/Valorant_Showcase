@@ -1,7 +1,7 @@
 import streamlit as st
 import requests
 st.set_page_config(layout="wide", page_icon="icons/val_icon2.png")
-st.image("icons/upp.png")
+st.image("icons/background.png")
 st.title("Valorant Weapons Information")
 sidebar = st.sidebar
 result = requests.get(url="https://valorant-api.com/v1/weapons")
