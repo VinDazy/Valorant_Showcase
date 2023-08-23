@@ -145,7 +145,7 @@ if search :
                         additional.audio(path_1,format='audio/wav')
                         additional.markdown("---")
                         if len(audio_list)==2:
-                            path_2=f"C:\\Users\\ebdel\\Desktop\\Valorant\\audio\\wav-audio\\{map_name}"
+                            path_2=f"audio\\wav-audio\\{map_name}"
                             additional.subheader("Agent Audio")
                             files_in_directory = os.listdir(path_2)
                             filtered_files = [file for file in files_in_directory if not file.startswith(f"{map_name}")]
