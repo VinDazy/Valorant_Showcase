@@ -141,21 +141,55 @@ if search :
                             location.image(image=image,caption=country)
                     with additional:
                         additional.subheader("Map Theme")
-                        path_1=f'audio\wav-audio\{map_name}\{map_name}_Theme.mp3.wav'
-                        additional.audio(path_1,format='audio/wav')
+                        match map_name:
+                                case "Ascent":
+                                    map_theme='audio\wav-audio\Ascent\Ascent_Theme.mp3.wav'
+                                    agent_name="Reyna"
+                                    agent_theme='audio\wav-audio\Ascent\ReynaMatchStartAscent.mp3.wav'
+                                case "Bind":
+                                    map_theme='audio\wav-audio\Bind\Bind_Theme.mp3.wav'
+                                    agent_name="Cypher"
+                                    agent_theme='audio\wav-audio\Bind\CypherMatchStartBind.mp3.wav'
+                                case 'Breeze':
+                                    map_theme='audio\wav-audio\Breeze\Breeze_Theme.mp3.wav'
+                                    agent_name="Chamber"
+                                    agent_theme='audio\wav-audio\Breeze\ChamberMatchStartBreeze.mp3.wav'
+                                case 'Fracture':
+                                    map_theme='audio\wav-audio\Fracture\Fracture_Theme.mp3.wav'
+                                    agent_name="Fade"
+                                    agent_theme='audio\wav-audio\Fracture\FadeMatchStartFracture.mp3.wav'
+                                case 'Haven':
+                                    map_theme='audio\wav-audio\Haven\Haven_Theme.mp3.wav'
+                                    agent_name='Harbor'
+                                    agent_theme="audio\wav-audio\Haven\HarborMatchStartHaven.mp3.wav"
+                                case 'Icebox':
+                                    map_theme='audio\wav-audio\IceBox\IceBox_Theme.mp3.wav'
+                                    agent_name = 'Yoru'
+                                    agent_theme='audio\wav-audio\Icebox\YoruMatchStartIcebox.mp3.wav'
+                                case 'Lotus':
+                                    map_theme='audio\wav-audio\Lotus\Lotus_Theme.mp3.wav'
+                                    agent_name='Astra'
+                                case 'Pearl':
+                                    map_theme="audio\wav-audio\Pearl\Pearl_Theme.mp3.wav"
+
+                                    additional.write("Oran McEneff, speaking to Rúben Pontes about his home world")
+                                case 'Spilt':
+                                    map_theme='audio\wav-audio\Split\Split_Theme.mp3.wav'
+                                    agent_name='Yoru'
+                                    agent_theme='audio\wav-audio\Split\YoruMatchStartSplit.mp3.wav'
+                            
+                        additional.audio(map_theme,format='audio/wav')
                         additional.markdown("---")
-                        if len(audio_list)==2:
-                            path_2=f"audio\\wav-audio\\{map_name}"
+                        
+                        if map_name!='Pearl' and map_name!='Lotus':
                             additional.subheader("Agent Audio")
-                            files_in_directory = os.listdir(path_2)
-                            filtered_files = [file for file in files_in_directory if not file.startswith(f"{map_name}")]
-                            filtered_paths = [os.path.join(path_2, file) for file in filtered_files]
-                            additional.audio(filtered_paths[0],format='audio/wav')
-                            terms = files_in_directory[1].split("MatchStart")
-                            agent_name = terms[0]
+                            additional.audio(agent_theme , format ='audio/wav')
                             additional.write(f'-   {agent_name} Match Start on {map_name}')
-                        else:
-                            additional.write("Oran McEneff, speaking to Rúben Pontes about his home world")
+                        if map_name=='Lotus':
+                            additional.subheader("Agent Comment")
+                            additional.write(f'-   {agent_name} Match Start on {map_name}')
+
+
                         pic,info=additional.columns(2)
                         
                         with pic:
