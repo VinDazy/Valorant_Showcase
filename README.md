@@ -4,6 +4,9 @@
 ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/VinDazy/Valorant_Showcase)
 ![GitHub repo size](https://img.shields.io/github/repo-size/VinDazy/Valorant_Showcase)
 ![Bitbucket open issues](https://img.shields.io/bitbucket/issues/VinDazy/Valorant_Showcase)
+![GitHub all releases](https://img.shields.io/github/downloads/VinDazy/Valorant_Showcase/total)
+![GitHub forks](https://img.shields.io/github/forks/VinDazy/Valorant_Showcase)
+
 
 ## Description
 This Streamlit Web Application is a showcase of Riot's FPS game " Valorant " basic information such as Agents, Abilities, Maps by pulling data from two resources, a VALORANT endpoint API and scrapping a [valorant fandom website](https://valorant.fandom.com/wiki/VALORANT_Wiki).
