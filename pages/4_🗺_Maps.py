@@ -176,13 +176,17 @@ if search :
                                     map_theme='audio\wav-audio\Split\Split_Theme.mp3.wav'
                                     agent_name='Yoru'
                                     agent_theme='audio\wav-audio\Split\YoruMatchStartSplit.mp3.wav'
-                            
-                        additional.audio(map_theme,format='audio/wav')
+                        
+                        audio_1=open(map_theme,'rb')
+                        audio_1_bytes=audio_1.read()
+                        additional.audio(data=audio_2_bytes,format='audio/wav')
                         additional.markdown("---")
                         
                         if map_name!='Pearl' and map_name!='Lotus':
                             additional.subheader("Agent Audio")
-                            additional.audio(agent_theme , format ='audio/wav')
+                            audio_2=open(agent_theme,'rb')
+                            audio_2_bytes=audio_2.read()
+                            additional.audio(data=audio_2_bytes , format ='audio/wav')
                             additional.write(f'-   {agent_name} Match Start on {map_name}')
                         if map_name=='Lotus':
                             additional.subheader("Agent Comment")
