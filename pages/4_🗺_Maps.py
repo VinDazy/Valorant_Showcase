@@ -81,35 +81,34 @@ if search :
     elif map_name not in maps:
         st.error("No such Map found! ")
     else:
-        result=requests.get(url=f"https://valorant.fandom.com/wiki/{map_name}").text
-        soup = BeautifulSoup(result, 'lxml')
-        information=soup.find("section",class_="pi-item pi-group pi-border-color pi-collapse pi-collapse-open")
-        map_location=information.find('div',class_='pi-data-value pi-font').text
-        country=map_location.split(", ")[-2]
-        if country=="USA":
-            country="United-States"
-        elif country=="Atlantic Ocean":
-            country="No Country"
-        image=scrape_image(country=country)
-        #location_image=information.find('div',class_='pi-data-value pi-font').find('img')['src']
-        added_div = soup.find('div', {'data-source': 'added'})
-        added_date = added_div.find('div', {'class': 'pi-data-value pi-font'}).text.strip()
-        descriptions_strings=soup.find_all('div',style="font-size:1.1em; padding-left: 0.6em; padding-top:1em; padding-bottom:1em; padding-right: 1em;")
-        description_list=[]
-        for description in descriptions_strings:
-            text=description.find('i').get_text()
-            text = re.sub(r'https://.*?\.mp3', '', text)
-            description_list.append(text)
-        #map theme + agent audio
-        audio_list=[]
-        map_sound=soup.find_all('span',class_='audio-button')
-        for sound in map_sound:
-            audio_element=sound.find('audio')
-            if audio_element:
-                source=audio_element['src']
-                audio_list.append(source)
         with st.spinner("Gathering Resources"):
-            time.sleep(0.9)
+            result=requests.get(url=f"https://valorant.fandom.com/wiki/{map_name}").text
+            soup = BeautifulSoup(result, 'lxml')
+            information=soup.find("section",class_="pi-item pi-group pi-border-color pi-collapse pi-collapse-open")
+            map_location=information.find('div',class_='pi-data-value pi-font').text
+            country=map_location.split(", ")[-2]
+            if country=="USA":
+                country="United-States"
+            elif country=="Atlantic Ocean":
+                country="No Country"
+            image=scrape_image(country=country)
+            #location_image=information.find('div',class_='pi-data-value pi-font').find('img')['src']
+            added_div = soup.find('div', {'data-source': 'added'})
+            added_date = added_div.find('div', {'class': 'pi-data-value pi-font'}).text.strip()
+            descriptions_strings=soup.find_all('div',style="font-size:1.1em; padding-left: 0.6em; padding-top:1em; padding-bottom:1em; padding-right: 1em;")
+            description_list=[]
+            for description in descriptions_strings:
+                text=description.find('i').get_text()
+                text = re.sub(r'https://.*?\.mp3', '', text)
+                description_list.append(text)
+            #map theme + agent audio
+            audio_list=[]
+            map_sound=soup.find_all('span',class_='audio-button')
+            for sound in map_sound:
+                audio_element=sound.find('audio')
+                if audio_element:
+                    source=audio_element['src']
+                    audio_list.append(source)
             sidebar.info(f"Displaying {map_name} information",icon="🎉")
         pic,description,additional=st.columns(3)
         for mapp in json_data['data']:
