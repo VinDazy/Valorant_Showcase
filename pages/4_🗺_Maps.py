@@ -44,7 +44,7 @@ def scrape_image(country):
         image_url=soup.find('div',class_='col-12 col-md-5 text-center d-flex align-items-center justify-content-center').find('img')['src']
         return(image_url)
     except:
-        st.error(f'No flag found for "{country}" ')
+        sidebar.error(f'No flag found for "{country}" ')
 def get_agent_icon(agent_name):
     result = requests.get(url="https://valorant-api.com/v1/agents")
     json_data = result.json()
@@ -90,7 +90,7 @@ if search :
             if country=="USA":
                 country="United-States"
             elif country=="Atlantic Ocean":
-                country="No Country"
+                country="Not a Country"
             image=scrape_image(country=country)
             #location_image=information.find('div',class_='pi-data-value pi-font').find('img')['src']
             added_div = soup.find('div', {'data-source': 'added'})
