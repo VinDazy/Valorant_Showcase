@@ -160,7 +160,7 @@ if search :
                                     agent_name='Harbor'
                                     agent_theme="audio/wav_audio/Haven/HarborMatchStartHaven.mp3.wav"
                         elif map_name== 'Icebox':
-                                    map_theme='audio/wav_audio/IceBox/IceBox_Theme.mp3.wav'
+                                    map_theme='audio/wav_audio/Icebox/Icebox_Theme.mp3.wav'
                                     agent_name = 'Yoru'
                                     agent_theme='audio/wav_audio/Icebox/YoruMatchStartIcebox.mp3.wav'
                         elif map_name== 'Lotus':
