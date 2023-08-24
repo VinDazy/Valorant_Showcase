@@ -27,7 +27,7 @@ Addiotionally, just like Agents browsing, this web app offers Maps browsing. Onc
 
 Agents          |  Maps | Guns
 :-------------------------:|:-------------------------:|:-------------------------:
-![hello world](media/agents.gif) | ![screen-gif](media/map.gif) | ![screen-gif](media/guns.gif)
+![screen-gif](media/agents.gif) | ![screen-gif](media/map.gif) | ![screen-gif](media/guns.gif)
 ![screen-gif](media/specific_agent.gif)
 ## Required packages
 -Streamlit 
