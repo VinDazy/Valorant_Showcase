@@ -195,7 +195,7 @@ if search :
                             if map_name !='Pearl':
                                 pic.image(get_agent_icon(agent_name),caption=agent_name,width=90)
                             else:
-                                pic.image('icons\Oran_McEneff.webp',caption="Oran McEneff")
+                                pic.image('icons/Oran_McEneff.webp',caption="Oran McEneff")
                         with info :
                             info.write(description_list[0])
                             
