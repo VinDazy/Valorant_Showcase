@@ -172,7 +172,7 @@ if search :
                                     map_theme="audio/wav_audio/Pearl/Pearl_Theme.mp3.wav"
 
                                     additional.write("Oran McEneff, speaking to Rúben Pontes about his home world")
-                        elif map_name== 'Spilt':
+                        elif map_name== 'Split':
                                     map_theme='audio/wav_audio/Split/Split_Theme.mp3.wav'
                                     agent_name='Yoru'
                                     agent_theme='audio/wav_audio/Split/YoruMatchStartSplit.mp3.wav'
