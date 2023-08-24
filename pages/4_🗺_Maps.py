@@ -2,8 +2,6 @@ import streamlit as st
 import requests
 from bs4 import BeautifulSoup
 import re 
-import time
-import os 
 
 
 
@@ -133,6 +131,9 @@ if search :
                     with location:
                         location.subheader(f" Location ")
                         location.write(map_location)
+                        location.markdown("---")
+                        location.subheader("Coordinates")
+                        location.write(map_coordinates)
                         location.markdown("---")
                         if image is not None:
                             location.subheader("Inspiration country")
