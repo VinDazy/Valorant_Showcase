@@ -142,51 +142,47 @@ if search :
                     with additional:
                         additional.subheader("Map Theme")
                         if map_name=="Ascent":
-                                    map_theme='audio\wav_audio\Ascent\Ascent_Theme.mp3.wav'
+                                    map_theme='audio/wav_audio/Ascent/Ascent_Theme.mp3.wav'
                                     agent_name="Reyna"
-                                    agent_theme='audio\wav_audio\Ascent\ReynaMatchStartAscent.mp3.wav'
+                                    agent_theme='audio/wav_audio/Ascent/ReynaMatchStartAscent.mp3.wav'
                         elif map_name== "Bind":
-                                    map_theme='audio\wav_audio\Bind\Bind_Theme.mp3.wav'
+                                    map_theme='audio/wav_audio/Bind/Bind_Theme.mp3.wav'
                                     agent_name="Cypher"
-                                    agent_theme='audio\wav_audio\Bind\CypherMatchStartBind.mp3.wav'
+                                    agent_theme='audio/wav_audio/Bind/CypherMatchStartBind.mp3.wav'
                         elif map_name== 'Breeze':
-                                    map_theme='audio\wav_audio\Breeze\Breeze_Theme.mp3.wav'
+                                    map_theme='audio/wav_audio/Breeze/Breeze_Theme.mp3.wav'
                                     agent_name="Chamber"
-                                    agent_theme='audio\wav_audio\Breeze\ChamberMatchStartBreeze.mp3.wav'
+                                    agent_theme='audio/wav_audio/Breeze/ChamberMatchStartBreeze.mp3.wav'
                         elif map_name== 'Fracture':
-                                    map_theme='audio\wav_audio\Fracture\Fracture_Theme.mp3.wav'
+                                    map_theme='audio/wav_audio/Fracture/Fracture_Theme.mp3.wav'
                                     agent_name="Fade"
-                                    agent_theme='audio\wav_audio\Fracture\FadeMatchStartFracture.mp3.wav'
+                                    agent_theme='audio/wav_audio/Fracture/FadeMatchStartFracture.mp3.wav'
                         elif map_name== 'Haven':
-                                    map_theme='audio\wav_audio\Haven\Haven_Theme.mp3.wav'
+                                    map_theme='audio/wav_audio/Haven/Haven_Theme.mp3.wav'
                                     agent_name='Harbor'
-                                    agent_theme="audio\wav_audio\Haven\HarborMatchStartHaven.mp3.wav"
+                                    agent_theme="audio/wav_audio/Haven/HarborMatchStartHaven.mp3.wav"
                         elif map_name== 'Icebox':
-                                    map_theme='audio\wav_audio\IceBox\IceBox_Theme.mp3.wav'
+                                    map_theme='audio/wav_audio/IceBox/IceBox_Theme.mp3.wav'
                                     agent_name = 'Yoru'
-                                    agent_theme='audio\wav_audio\Icebox\YoruMatchStartIcebox.mp3.wav'
+                                    agent_theme='audio/wav_audio/Icebox/YoruMatchStartIcebox.mp3.wav'
                         elif map_name== 'Lotus':
-                                    map_theme='audio\wav_audio\Lotus\Lotus_Theme.mp3.wav'
+                                    map_theme='audio/wav_audio/Lotus/Lotus_Theme.mp3.wav'
                                     agent_name='Astra'
                         elif map_name== 'Pearl':
-                                    map_theme="audio\wav_audio\Pearl\Pearl_Theme.mp3.wav"
+                                    map_theme="audio/wav_audio/Pearl/Pearl_Theme.mp3.wav"
 
                                     additional.write("Oran McEneff, speaking to Rúben Pontes about his home world")
                         elif map_name== 'Spilt':
-                                    map_theme='audio\wav_audio\Split\Split_Theme.mp3.wav'
+                                    map_theme='audio/wav_audio/Split/Split_Theme.mp3.wav'
                                     agent_name='Yoru'
-                                    agent_theme='audio\wav_audio\Split\YoruMatchStartSplit.mp3.wav'
+                                    agent_theme='audio/wav_audio/Split/YoruMatchStartSplit.mp3.wav'
                         
-                        audio_1=open(map_theme,'rb')
-                        audio_1_bytes=audio_1.read()
-                        additional.audio(data=audio_1_bytes,format='audio/wav')
+                        additional.audio(data=map_theme,format='audio/wav')
                         additional.markdown("---")
                         
                         if map_name!='Pearl' and map_name!='Lotus':
                             additional.subheader("Agent Audio")
-                            audio_2=open(agent_theme,'rb')
-                            audio_2_bytes=audio_2.read()
-                            additional.audio(data=audio_2_bytes , format ='audio/wav')
+                            additional.audio(data=agent_theme , format ='audio/wav')
                             additional.write(f'-   {agent_name} Match Start on {map_name}')
                         if map_name=='Lotus':
                             additional.subheader("Agent Comment")
