@@ -141,39 +141,38 @@ if search :
                             location.image(image=image,caption=country)
                     with additional:
                         additional.subheader("Map Theme")
-                        match map_name:
-                                case "Ascent":
+                        if map_name=="Ascent":
                                     map_theme='audio\wav-audio\Ascent\Ascent_Theme.mp3.wav'
                                     agent_name="Reyna"
                                     agent_theme='audio\wav-audio\Ascent\ReynaMatchStartAscent.mp3.wav'
-                                case "Bind":
+                        elif map_name== "Bind":
                                     map_theme='audio\wav-audio\Bind\Bind_Theme.mp3.wav'
                                     agent_name="Cypher"
                                     agent_theme='audio\wav-audio\Bind\CypherMatchStartBind.mp3.wav'
-                                case 'Breeze':
+                        elif map_name== 'Breeze':
                                     map_theme='audio\wav-audio\Breeze\Breeze_Theme.mp3.wav'
                                     agent_name="Chamber"
                                     agent_theme='audio\wav-audio\Breeze\ChamberMatchStartBreeze.mp3.wav'
-                                case 'Fracture':
+                        elif map_name== 'Fracture':
                                     map_theme='audio\wav-audio\Fracture\Fracture_Theme.mp3.wav'
                                     agent_name="Fade"
                                     agent_theme='audio\wav-audio\Fracture\FadeMatchStartFracture.mp3.wav'
-                                case 'Haven':
+                        elif map_name== 'Haven':
                                     map_theme='audio\wav-audio\Haven\Haven_Theme.mp3.wav'
                                     agent_name='Harbor'
                                     agent_theme="audio\wav-audio\Haven\HarborMatchStartHaven.mp3.wav"
-                                case 'Icebox':
+                        elif map_name== 'Icebox':
                                     map_theme='audio\wav-audio\IceBox\IceBox_Theme.mp3.wav'
                                     agent_name = 'Yoru'
                                     agent_theme='audio\wav-audio\Icebox\YoruMatchStartIcebox.mp3.wav'
-                                case 'Lotus':
+                        elif map_name== 'Lotus':
                                     map_theme='audio\wav-audio\Lotus\Lotus_Theme.mp3.wav'
                                     agent_name='Astra'
-                                case 'Pearl':
+                        elif map_name== 'Pearl':
                                     map_theme="audio\wav-audio\Pearl\Pearl_Theme.mp3.wav"
 
                                     additional.write("Oran McEneff, speaking to Rúben Pontes about his home world")
-                                case 'Spilt':
+                        elif map_name== 'Spilt':
                                     map_theme='audio\wav-audio\Split\Split_Theme.mp3.wav'
                                     agent_name='Yoru'
                                     agent_theme='audio\wav-audio\Split\YoruMatchStartSplit.mp3.wav'
