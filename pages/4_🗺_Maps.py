@@ -179,7 +179,7 @@ if search :
                         
                         audio_1=open(map_theme,'rb')
                         audio_1_bytes=audio_1.read()
-                        additional.audio(data=audio_2_bytes,format='audio/wav')
+                        additional.audio(data=audio_1_bytes,format='audio/wav')
                         additional.markdown("---")
                         
                         if map_name!='Pearl' and map_name!='Lotus':
