@@ -128,12 +128,13 @@ if search :
                     with date:
                         date.subheader(f"Release Date " )
                         date.write(added_date)
+                        date.markdown("---")
+                        date.subheader("Coordinates")
+                        date.write(map_coordinates)
+                        
                     with location:
                         location.subheader(f" Location ")
                         location.write(map_location)
-                        location.markdown("---")
-                        location.subheader("Coordinates")
-                        location.write(map_coordinates)
                         location.markdown("---")
                         if image is not None:
                             location.subheader("Inspiration country")
