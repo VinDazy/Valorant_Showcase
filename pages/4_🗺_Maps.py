@@ -114,6 +114,7 @@ if search :
                 map_image=mapp["splash"]
                 map_illustration=mapp['displayIcon']
                 map_coordinates=mapp['coordinates']
+                map_sites=mapp['tacticalDescription']
                 with pic:
                     pic.subheader("Map illustration")
                     pic.image(image=map_image,caption=map_name)
@@ -123,7 +124,10 @@ if search :
                     description.subheader(f"Map Description")
                     description.write('- '+description_list[1])
                     description.markdown("---")
-                    #description.subheader(f"Map Details")
+                    site_count=map_sites.count('/')+1
+                    description.subheader(f"Map Sites : {site_count}")
+                    description.write(map_sites)
+                    description.markdown("---")
                     date,location=description.columns(2)
                     with date:
                         date.subheader(f"Release Date " )
