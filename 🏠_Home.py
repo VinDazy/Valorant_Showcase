@@ -29,27 +29,29 @@ col1,col2,col3=st.columns(3)
 agentNames=[]
 agent_count=1
 for agent in json_data['data']:
-        agent_name=agent['displayName']
-        if (agent_name=='Sova') and (agent['isPlayableCharacter']==False):
-            #! Skip this iteration because the API provided two sova's , to filter the right one, we use IsPlayableCharacter==True
-            continue
-        image=agent['fullPortrait']
-        if agent_count <=7:
-                col1.image(image,caption=agent_name)
-                col1.markdown("---")
-        elif agent_count in range(8,15):
-                col2.image(image,caption=agent_name)
-                col2.markdown("---")
-        elif agent_count in range(16,23):
-                col3.image(image,caption=agent_name)
-                col3.markdown("---")
-        else:
-              #! this needs to be updated when more agents are added
-              #! it needs to stay consistent with the layout , for now agents are added to the first column 
-              col1.image(image,caption=agent_name)
-              col1.markdown("---")
-        agentNames.append(agent_name)
-        agent_count+=1
+        with st.spinner("Gathering Resources"):
+                agent_name=agent['displayName']
+                if (agent_name=='Sova') and (agent['isPlayableCharacter']==False):
+                #! Skip this iteration because the API provided two sova's , to filter the right one, we use IsPlayableCharacter==True
+                        continue
+                image=agent['fullPortrait']
+                if agent_count <=7:
+                        col1.image(image,caption=agent_name)
+                        col1.markdown("---")
+                elif agent_count in range(8,15):
+                        col2.image(image,caption=agent_name)
+                        col2.markdown("---")
+                elif agent_count in range(16,23):
+                        col3.image(image,caption=agent_name)
+                        col3.markdown("---")
+                else:
+                #! this needs to be updated when more agents are added
+                #! it needs to stay consistent with the layout , for now agents are added to the first column 
+                        col1.image(image,caption=agent_name)
+                        col1.markdown("---")
+                agentNames.append(agent_name)
+                agent_count+=1
+st.sidebar.info(f"Loading Agents : Done",icon="🎉")
 
 
 
