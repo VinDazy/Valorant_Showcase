@@ -36,14 +36,18 @@ for agent in json_data['data']:
         image=agent['fullPortrait']
         if agent_count <=7:
                 col1.image(image,caption=agent_name)
+                col1.markdown("---")
         elif agent_count in range(8,15):
                 col2.image(image,caption=agent_name)
+                col2.markdown("---")
         elif agent_count in range(16,23):
                 col3.image(image,caption=agent_name)
+                col3.markdown("---")
         else:
               #! this needs to be updated when more agents are added
               #! it needs to stay consistent with the layout , for now agents are added to the first column 
               col1.image(image,caption=agent_name)
+              col1.markdown("---")
         agentNames.append(agent_name)
         agent_count+=1
 
