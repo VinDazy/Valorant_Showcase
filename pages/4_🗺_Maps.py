@@ -125,7 +125,7 @@ if search :
                     description.write('- '+description_list[1])
                     description.markdown("---")
                     site_count=map_sites.count('/')+1
-                    description.subheader(f"Map Sites : {site_count}")
+                    description.subheader(f"Planting Sites : {site_count}")
                     description.write(map_sites)
                     description.markdown("---")
                     date,location=description.columns(2)
