@@ -11,48 +11,45 @@ hide_menu_style="""
 footer {visibility: hidden;}
 </style> 
 """
-col1,col2,col3,col4,col5,col6=st.columns(6)
+def main():
 
-#! Gun buddies count : 366
-result=requests.get(url="https://valorant-api.com/v1/buddies")
-json_data=result.json()
-buddy_count = 1
-for buddy in json_data['data']:
-    with st.spinner("Gathering Resources"):
+    result = requests.get(url="https://valorant-api.com/v1/buddies")
+    json_data = result.json()
+    buddies = json_data['data']
+
+    num_columns = 6
+    cols = st.columns(num_columns)
+
+    sprays_per_page = 50
+    num_pages = (len(buddies) + sprays_per_page - 1) // sprays_per_page
+
+    page = st.sidebar.number_input("Page", min_value=1, max_value=num_pages, value=1)
+
+    start_idx = (page - 1) * sprays_per_page
+    end_idx = min(start_idx + sprays_per_page, len(buddies))
+
+    for buddy_count, buddy in enumerate(buddies[start_idx:end_idx], start=start_idx + 1):
         buddy_name = buddy['displayName']
         buddy_image = buddy['displayIcon']
-        if buddy['isHiddenIfNotOwned']==True:
-            availability='  🚫'
-        else:
-            availability='  ✔️'
-        if buddy_count <= 61:
-            col1.image(buddy_image, caption=f"{buddy_name} \n",width=120)
-            col1.write(f"Available : {availability}")
-            col1.markdown("---")
-        elif buddy_count in range(62, 123):
-            col2.image(buddy_image, caption=f"{buddy_name} \n",width=120)
-            col2.write(f"Available : {availability}")
-            col2.markdown("---")
-        elif buddy_count in range(123, 185):
-            col3.image(buddy_image, caption=f"{buddy_name} \n",width=120)
-            col3.write(f"Available : {availability}")
-            col3.markdown("---")
-        elif buddy_count in range(185, 247):
-            col4.image(buddy_image, caption=f"{buddy_name} \n",width=120)
-            col4.write(f"Available : {availability}")
-            col4.markdown("---")
-        elif buddy_count in range(247, 309):
-            col5.image(buddy_image, caption=f"{buddy_name} \n",width=120)
-            col5.write(f"Available : {availability}")
-            col5.markdown("---")
-        elif buddy_count in range(309, 367):  # Corrected range here
-            col6.image(buddy_image, caption=f"{buddy_name}\n",width=120)
-            col6.write(f"Available : {availability}")
-            col6.markdown("---")
-        else:
-            # Handle any remaining buddies or cases not covered in the ranges
-            pass
-        
-        buddy_count += 1
-st.sidebar.info(f"Loading Gun Buddies : Done",icon="🎉")
+        is_hidden_if_not_owned = buddy['isHiddenIfNotOwned']
+
+        availability = '🚫' if is_hidden_if_not_owned else '✔️'
+
+        col_index = buddy_count % num_columns  # Calculate the current column index (0 to num_columns - 1)
+
+        with cols[col_index]:
+            st.write(buddy_name)
+            if buddy_image is not None:
+                st.image(buddy_image, caption=buddy_name, width=120)
+                st.write(f"Available: {availability}")
+            else:
+                st.write("Image not available")
+
+            st.markdown("---")
+
+
+if __name__ == "__main__":
+    main()
+
+
 
