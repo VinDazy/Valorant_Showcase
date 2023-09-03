@@ -179,7 +179,12 @@ if search :
                         elif map_name== 'Split':
                                     map_theme='audio/wav_audio/Split/Split_Theme.mp3.wav'
                                     agent_name='Yoru'
+                    
                                     agent_theme='audio/wav_audio/Split/YoruMatchStartSplit.mp3.wav'
+                        elif map_name=='Sunset':
+                                    map_theme='audio/wav_audio/Sunset/Sunset_Theme.mp3.wav'
+                                    agent_name='Reyna'
+                                    agent_theme='audio/wav_audio/Sunset/ReynaMatchStartSunset.mp3.wav'
                         
                         additional.audio(data=map_theme,format='audio/wav')
                         additional.markdown("---")
