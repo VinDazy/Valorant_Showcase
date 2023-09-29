@@ -46,7 +46,8 @@ if search:
                 agent_role=agent['role']['displayName']
                 role_description=agent['role']['description']
                 role_img=agent['role']['displayIcon']
-                voiceline=agent['voiceLine']['mediaList'][0]["wave"]
+                if agent['voiceLine'] is not None:
+                    voiceline=agent['voiceLine']['mediaList'][0]["wave"]
                 agent_tags=agent['characterTags']
                 agent_background_image=agent['background']
 
@@ -79,9 +80,10 @@ if search:
                         for tag in agent_tags:
                             description.markdown('- '+tag.capitalize())
                 with additional:
-                    
-                    additional.subheader(f"{Agent_name} Voiceline")
-                    additional.audio(voiceline,format="audio/wav")
+                    if agent['voiceLine'] is not None :
+                        additional.subheader(f"{Agent_name} Voiceline")
+                    if agent['voiceLine'] is not None:
+                        additional.audio(voiceline,format="audio/wav")
                     placeholder=additional.empty()
                     placeholder.text("\n")
                     additional.markdown("---")
